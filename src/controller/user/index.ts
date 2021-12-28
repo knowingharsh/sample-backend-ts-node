@@ -1,4 +1,4 @@
-import {  getUserFromToken } from './user.controller';
+import {  getUserFromToken, getInfo } from './user.controller';
 export const UserController = {
-   getUserFromToken
+   getUserFromToken, getInfo
 }

@@ -1,7 +1,7 @@
 import { ApolloServer, AuthenticationError } from 'apollo-server-express';
 import depthLimit from 'graphql-depth-limit';
 import schema from './schema';
-import { PrivateServerContext } from './../../types/interface/global.interface';
+import { IUserInfo, PrivateServerContext } from './../../types/interface/global.interface';
 import { Connection } from 'typeorm';
 import { Controller } from '../../controller';
 
@@ -13,10 +13,10 @@ export const createPrivateServer = async ({ connection }: { connection: Connecti
       // Get the user token from the headers.
       const authorizationToken = req.headers.authorization || '';
       // Try to retrieve a user with the token
-      const user: any = await Controller.UserController.getUserFromToken(connection,authorizationToken);
+      const user: IUserInfo | undefined = await Controller.UserController.getUserFromToken(connection,authorizationToken);
       if (!user) throw new AuthenticationError('PrivateContext : app.private.context -> header must be there you must be logged in');
       const appContext: PrivateServerContext = {
-        userId: req.headers.authorization,
+        user : user,
         connection: connection
       };
       return appContext;

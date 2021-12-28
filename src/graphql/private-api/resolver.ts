@@ -6,7 +6,7 @@ const resolverMap = {
     testPrivate: (_: any, args: any, ctx: PrivateServerContext) => {
       return "testPrivate";
     },
-    // getInfo : Controller.UserController.getInfo
+    getInfo : Controller.UserController.getInfo
   },
   // Mutation: {
     // login: Controller.AuthController.login,

@@ -6,9 +6,9 @@ export class Users{
 
   @PrimaryGeneratedColumn("uuid") id: string;
 
-  @Column({ type: 'varchar', nullable: false }) firstName: string;
+  @Column({ type: 'varchar', nullable: true }) firstName: string;
 
-  @Column({ type: 'varchar', nullable: false }) lastName: string;
+  @Column({ type: 'varchar', nullable: true }) lastName: string;
 
   @Column({ type: 'varchar', nullable: false }) email: string;
 
