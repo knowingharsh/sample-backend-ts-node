@@ -1,0 +1,18 @@
+
+type Query {
+  test: String!
+}
+
+type Tokens {
+  accessToken: String!
+  renewToken: String!
+}
+
+type RegisterResponse {
+  isRegistered: String!
+}
+
+type Mutation {
+  login(email: String!, password: String!): Tokens
+  register(email: String!, password: String!): RegisterResponse
+}
